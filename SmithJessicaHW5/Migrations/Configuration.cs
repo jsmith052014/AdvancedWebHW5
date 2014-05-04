@@ -14,7 +14,7 @@ namespace SmithJessicaHW5.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         private void SeedMembership()
@@ -34,10 +34,10 @@ namespace SmithJessicaHW5.Migrations
                 membership.CreateUserAndAccount("Jessica", "123456");
             }
 
-            if(!roles.GetRolesForUser("Jessica").Contains("Admin"))
+            if (!roles.GetRolesForUser("Jessica").Contains("Admin"))
             {
                 roles.AddUsersToRoles(
-                    new[] {"Jessica"}, new[] {"Admin"}
+                    new[] { "Jessica" }, new[] { "Admin" }
                 );
             }
         }
@@ -89,7 +89,6 @@ namespace SmithJessicaHW5.Migrations
                     Actors = new List<Actor>{
                             new Actor {Id = 4, FirstName = "Hugh", MiddleInitial ="M", LastName = "Jackman"}
                         }
-
                 },
 
                new Movie

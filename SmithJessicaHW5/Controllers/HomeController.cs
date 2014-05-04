@@ -1,11 +1,11 @@
-﻿using System;
+﻿using SmithJessicaHW5.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SmithJessicaHW5.Models;
 
 namespace SmithJessicaHW5.Controllers
 {
@@ -39,7 +39,13 @@ namespace SmithJessicaHW5.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            return View();
+            Movie movie = new Movie();
+            movie.ActorSelections = db.Actors.ToList().Select(a => new SelectListItem
+            {
+                Text = a.FirstName + " " + a.LastName,
+                Value = a.Id.ToString()
+            });
+            return View(movie);
         }
 
         //
@@ -50,6 +56,14 @@ namespace SmithJessicaHW5.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create(Movie movie)
         {
+            movie.Actors = db.Actors.Where(a => movie.ActorSelectionIds.Contains(a.Id)).ToList();
+            foreach (var actor in movie.Actors)
+            {
+                actor.Movies.Add(movie);
+                TryValidateModel(actor, "");
+                db.Entry(actor).State = EntityState.Modified;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Movies.Add(movie);
