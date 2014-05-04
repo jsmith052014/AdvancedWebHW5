@@ -1,0 +1,44 @@
+﻿@model SmithJessicaHW5.Models.Actor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Actor</legend>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <br />
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.MiddleInitial)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.MiddleInitial)
+    </div>
+    <br />
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input class= "btn btn-primary" type="submit" value="Delete" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+}

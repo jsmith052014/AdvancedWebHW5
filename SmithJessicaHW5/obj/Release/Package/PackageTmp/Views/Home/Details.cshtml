@@ -1,0 +1,64 @@
+﻿@model SmithJessicaHW5.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Movie</legend>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.Year)
+    </div>
+    <div class="control-offset">
+        @Html.DisplayFor(model => model.Year)
+    </div>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.LengthInMinutes)
+    </div>
+    <div class="control-offset">
+        @Html.DisplayFor(model => model.LengthInMinutes)
+    </div>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.Format)
+    </div>
+    <div class="control-offset">
+        @Html.DisplayFor(model => model.Format)
+    </div>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.Genre)
+    </div>
+    <div class="control-offset">
+        @Html.DisplayFor(model => model.Genre)
+    </div>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.Rating)
+    </div>
+    <div class="control-offset">
+        @Html.DisplayFor(model => model.Rating)
+    </div>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.IsFavorited)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.IsFavorited)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

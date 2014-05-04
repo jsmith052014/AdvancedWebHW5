@@ -1,0 +1,37 @@
+﻿@model SmithJessicaHW5.Models.Actor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Actor</legend>
+
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+    <br />
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.MiddleInitial)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.MiddleInitial)
+    </div>
+    <br />
+    <div class="col-sm-2">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="col-sm-offset">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
